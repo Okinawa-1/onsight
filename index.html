@@ -2,59 +2,243 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <title>ON SIGHT｜沖縄の移動式ハイエンド洗車</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ON SIGHT｜沖縄の移動式プレミアム洗車</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* 全ページ共通の基本スタイル */
-    :root { --main: #0077b6; --dark: #1a1a1a; --gold: #d4af37; }
+    :root {
+      --main-blue: #0077b6; /* 沖縄の深い海 */
+      --accent-cyan: #00b4d8;
+      --gold: #d4af37; /* 高級感の演出 */
+      --bg-dark: #1a1a1a;
+      --text-white: #ffffff;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; color: #333; background: #fff; }
-    
+    body {
+      font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
+      color: #333;
+      line-height: 1.8;
+      background-color: #f8f9fa;
+    }
+
     /* ナビゲーション */
-    nav { background: #fff; display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .logo { font-family: 'Montserrat'; font-weight: 800; font-size: 1.5rem; color: var(--main); }
-    nav ul { display: flex; list-style: none; gap: 20px; }
-    nav a { text-decoration: none; color: #333; font-weight: 700; font-size: 0.9rem; }
-    
-    /* ヒーローエリア */
-    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1552930294-6b595f4c2974?q=80&w=2000'); background-size: cover; background-position: center; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center; padding: 0 20px; }
-    .hero h1 { font-size: 3rem; margin-bottom: 10px; letter-spacing: 2px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+    .nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 10px 0;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--main-blue);
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+    .nav a:hover { color: var(--accent-cyan); }
+
+    /* ヒーローセクション */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1600&q=80'); /* 車のイメージ背景 */
+      background-size: cover;
+      background-position: center;
+      color: var(--text-white);
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    header h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
 
     /* ボタン */
-    .btn { background: var(--main); color: #fff; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; }
-    .btn:hover { transform: translateY(-3px); background: #00b4d8; }
-    .cta-area { padding: 60px 20px; text-align: center; background: #f4f4f4; }
-    .line-btn { background: #06c755; margin-top: 10px; }
+    .btn-main {
+      background: var(--main-blue);
+      color: #fff;
+      padding: 18px 45px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.4s;
+      box-shadow: 0 10px 20px rgba(0,119,182,0.3);
+    }
+    .btn-main:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,119,182,0.5);
+      background: var(--accent-cyan);
+    }
 
-    footer { background: var(--dark); color: #fff; text-align: center; padding: 30px; margin-top: 50px; }
-    @media (max-width: 768px) { .hero h1 { font-size: 2rem; } nav ul { display: none; } }
+    /* セクション共通 */
+    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: var(--main-blue);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* サービスカード */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-10px); }
+    .card h3 { color: var(--main-blue); margin-bottom: 15px; }
+
+    /* 料金表 */
+    .price-box {
+      background: var(--bg-dark);
+      color: white;
+      border-radius: 30px;
+      padding: 50px;
+      text-align: center;
+    }
+    .price-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .price-item { flex: 1; min-width: 200px; }
+    .price-item span { font-size: 2.5rem; font-weight: 800; color: var(--accent-cyan); }
+
+    /* 予約セクション */
+    .reservation {
+      background: #e9ecef;
+      text-align: center;
+      border-radius: 30px;
+    }
+    .line-btn { background: #06c755; margin-top: 20px; }
+
+    footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      padding: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .nav ul { gap: 10px; font-size: 12px; }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">ON SIGHT</div>
+
+  <nav class="nav">
     <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="service.html">SERVICE</a></li>
-      <li><a href="price.html">PRICE</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#price">Price</a></li>
+      <li><a href="#reservation">Contact</a></li>
     </ul>
   </nav>
 
-  <header class="hero">
-    <h1>沖縄の愛車に、<br>最高級の輝きを。</h1>
-    <p>ご自宅・職場が洗車場に。移動なしの贅沢体験。</p>
-    <a href="#contact" class="btn">今すぐ予約を検討する</a>
+  <header id="home">
+    <h1>ON SIGHT</h1>
+    <p>沖縄の景色に、最高の輝きを。</p>
+    <a href="#reservation" class="btn-main">今すぐ予約する</a>
   </header>
 
-  <section class="cta-area" id="contact">
-    <h2>お電話・LINEで即予約</h2>
-    <p style="margin-bottom: 20px;">「Webサイトを見た」とお伝えください</p>
-    <a href="tel:08064872937" class="btn">📞 080-6487-2937</a><br><br>
-    <a href="#" class="btn line-btn">公式LINEで予約</a>
+  <section id="service">
+    <h2>PREMIUM SERVICES</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Nano Hand Wash</h3>
+        <p>最高級シャンプーを使用した、傷をつけない極上の手洗い洗車。</p>
+      </div>
+      <div class="card">
+        <h3>Interior Detailing</h3>
+        <p>掃除機掛けから内装除菌まで。ホテルのような清潔感を車内に。</p>
+      </div>
+      <div class="card">
+        <h3>Ultra Wax</h3>
+        <p>沖縄の強い紫外線から愛車を守る、高耐久撥水コーティング。</p>
+      </div>
+    </div>
   </section>
 
-  <footer>© 2026 ON SIGHT 沖縄中部出張洗車</footer>
+  <section id="price">
+    <div class="price-box">
+      <h2>PRICING</h2>
+      <div class="price-list">
+        <div class="price-item">
+          <p>Compact</p>
+          <span>¥4,000〜</span>
+        </div>
+        <div class="price-item">
+          <p>Standard</p>
+          <span>¥5,500〜</span>
+        </div>
+        <div class="price-item">
+          <p>SUV / Luxury</p>
+          <span>¥7,000〜</span>
+        </div>
+      </div>
+      <p style="margin-top:30px; opacity: 0.7;">※出張エリア：沖縄県中部（その他エリアはご相談ください）</p>
+    </div>
+  </section>
+
+  <section id="reservation" class="reservation">
+    <h2>RESERVATION</h2>
+    <p>公式LINEまたはお電話にて、24時間受付中。</p>
+    <div style="margin-top: 30px;">
+      <a href="tel:090-0000-0000" class="btn-main">お電話：090-0000-0000</a><br><br>
+      <a href="#" class="btn-main line-btn">LINEで今すぐ予約</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 ON SIGHT - Premium Mobile Car Wash Okinawa</p>
+  </footer>
+
 </body>
 </html>
