@@ -3,163 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ON SIGHT｜沖縄中部 出張洗車＆格安車検点検</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <title>ON SIGHT｜沖縄中部 プレミアム出張洗車＆格安車検点検</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-blue: #0077b6;
-      --accent-red: #e63946; /* 車検・最安値の強調用 */
-      --dark: #1a1a1a;
+      --main-bg: #0a0e14; /* 深海のようなダークネイビー */
+      --accent-red: #ff4d4d; /* 整備士の情熱・最安値の赤 */
+      --gold-line: #d4af37;
+      --text-gray: #a0aec0;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.7; color: #333; }
+    body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--main-bg); color: #fff; line-height: 1.6; overflow-x: hidden; }
 
-    /* ナビ */
+    /* ナビゲーション */
     nav {
-      background: rgba(255,255,255,0.95);
-      padding: 15px 5%;
+      padding: 20px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: rgba(10, 14, 20, 0.9);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    .logo { font-family: 'Montserrat'; font-weight: 800; font-size: 1.4rem; color: var(--main-blue); }
+    .logo { font-family: 'Montserrat'; font-weight: 800; font-size: 1.8rem; letter-spacing: 2px; color: #fff; }
+    .logo span { color: var(--accent-red); }
 
-    /* ヒーローエリア */
+    /* ヒーローセクション */
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1600&q=80');
+      height: 90vh;
+      background: linear-gradient(rgba(10,14,20,0.7), rgba(10,14,20,0.7)), 
+                  url('https://images.unsplash.com/photo-1605152276897-4f618f831968?q=80&w=2000');
       background-size: cover;
       background-position: center;
-      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #fff;
       text-align: center;
       padding: 0 20px;
     }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-    .hero p { font-size: 1.1rem; margin-bottom: 30px; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 4rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 40px; }
+
+    /* 整備士バッジ */
+    .badge {
+      background: var(--accent-red);
+      padding: 5px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
 
     /* セクション共通 */
-    section { padding: 80px 20px; max-width: 1000px; margin: auto; }
-    h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--main-blue); }
-    h2 span { font-size: 1rem; display: block; color: #888; margin-bottom: 5px; }
+    section { padding: 100px 5%; max-width: 1200px; margin: auto; }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; }
+    .section-title p { color: var(--accent-red); font-weight: bold; letter-spacing: 2px; }
 
-    /* 強みセクション */
-    .features { background: #f8f9fa; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; border-radius: 20px; }
-    .feature-card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-    .feature-card h3 { margin-bottom: 15px; color: var(--main-blue); }
-    .highlight-box { border: 2px solid var(--accent-red); background: #fff5f5; }
+    /* サービスカード（グリッド） */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      transition: 0.3s;
+      position: relative;
+    }
+    .card:hover { background: rgba(255,255,255,0.07); transform: translateY(-10px); border-color: var(--accent-red); }
+    .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+    .card p { color: var(--text-gray); font-size: 0.95rem; }
 
-    /* 料金テーブル */
-    .price-table { width: 100%; border-collapse: collapse; margin: 30px 0; }
-    .price-table th, .price-table td { border: 1px solid #ddd; padding: 15px; text-align: left; }
-    .price-table th { background: #eee; }
-    .price-val { font-weight: bold; color: var(--accent-red); font-size: 1.2rem; }
-
-    /* 固定予約ボタン（スマホ用） */
-    .fixed-footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+    /* 料金表 */
+    .price-box {
       background: #fff;
+      color: #000;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table th, .price-table td { padding: 25px; text-align: left; border-bottom: 1px solid #eee; }
+    .price-table th { background: #f8f8f8; color: #555; font-size: 0.8rem; }
+    .price-name { font-weight: 900; font-size: 1.2rem; }
+    .price-amount { color: var(--accent-red); font-weight: 900; font-size: 1.5rem; text-align: right; }
+
+    /* フッター予約ボタン（スマホ固定） */
+    .fixed-action {
+      position: fixed;
+      bottom: 20px;
+      left: 5%;
+      right: 5%;
       display: flex;
-      padding: 10px;
       gap: 10px;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-      z-index: 9999;
+      z-index: 2000;
     }
     .btn {
       flex: 1;
-      text-align: center;
-      padding: 15px;
-      border-radius: 10px;
+      padding: 18px;
+      border-radius: 15px;
       text-decoration: none;
-      font-weight: bold;
-      color: #fff;
+      font-weight: 900;
+      text-align: center;
+      font-size: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
-    .btn-tel { background: var(--main-blue); }
-    .btn-line { background: #06c755; }
+    .btn-tel { background: var(--accent-red); color: #fff; }
+    .btn-line { background: #06c755; color: #fff; }
 
-    footer { background: var(--dark); color: #777; text-align: center; padding: 40px 20px 100px; }
+    footer { text-align: center; padding: 100px 20px 150px; border-top: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); font-size: 0.8rem; }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">ON SIGHT</div>
-    <div style="font-size: 0.8rem; font-weight: bold;">沖縄中部 出張洗車</div>
+    <div class="logo">ON<span>SIGHT</span></div>
+    <div style="font-size: 0.7rem; color: var(--text-gray);">OKINAWA PREMIUM</div>
   </nav>
 
-  <section class="hero">
-    <h1>プロの技術を、<br>あなたの駐車場で。</h1>
-    <p>整備士資格を持つスタッフが伺う、安心の移動式洗車サービス</p>
-    <a href="tel:08064872937" class="btn btn-tel" style="flex:none; padding: 15px 40px;">今すぐ電話で予約</a>
-  </section>
+  <header class="hero">
+    <div class="badge">国家整備士 資格保持</div>
+    <h1>愛車を、<br>新車以上の感動へ。</h1>
+    <p>沖縄中部エリア限定。移動ゼロで完結するプロの洗車と点検。</p>
+    <a href="tel:08064872937" class="btn-tel" style="padding: 20px 50px; border-radius: 50px; text-decoration: none; color: #fff; font-weight: 900;">ご予約はこちら</a>
+  </header>
 
   <section id="service">
-    <h2><span>SERVICE</span>ON SIGHTの強み</h2>
-    <div class="features">
-      <div class="feature-card">
-        <h3>純水手洗い洗車</h3>
-        <p>沖縄の強い日差しでもシミにならない「純水」を使用。愛車を優しく、ピカピカに洗い上げます。</p>
+    <div class="section-title">
+      <p>OUR STRENGTH</p>
+      <h2>ON SIGHTが選ばれる理由</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>最高級の「純水」洗車</h3>
+        <p>沖縄特有のミネラル成分を100%カットした純水を使用。水道水では不可能な、濁りのないクリアな輝きを引き出します。</p>
       </div>
-      <div class="feature-card highlight-box">
-        <h3>国家整備士の点検</h3>
-        <p><strong>整備資格保持者が在籍！</strong>洗車と同時に、エンジンルームや足回りの異常をプロの目でチェックします。</p>
+      <div class="card" style="border-color: var(--accent-red);">
+        <h3>国家整備士の無料点検</h3>
+        <p>ただ洗うだけではありません。整備資格を持つプロが、洗車と同時にタイヤ・エンジンルームを点検。愛車の「安全」も守ります。</p>
       </div>
-      <div class="feature-card">
-        <h3>車検・点検が最安値</h3>
-        <p>店舗を持たないからこそできるコストカット。地域最安値クラスで車検の代行・点検も承ります。</p>
+      <div class="card">
+        <h3>地域最安値の車検対応</h3>
+        <p>店舗維持費を削ることで、車検代行も地域最安値を実現。洗車ついでにお見積もり。余計な手数料は一切いただきません。</p>
       </div>
     </div>
   </section>
 
   <section id="price">
-    <h2><span>PRICE</span>料金表（税込）</h2>
-    <table class="price-table">
-      <tr><th>サイズ</th><th>参考車種</th><th>料金</th></tr>
-      <tr><td>軽自動車</td><td>N-BOX / デイズ / タント</td><td class="price-val">¥4,400〜</td></tr>
-      <tr><td>普通車</td><td>プリウス / カローラ / ノート</td><td class="price-val">¥5,500〜</td></tr>
-      <tr><td>大型・SUV</td><td>アルファード / プラド</td><td class="price-val">¥7,700〜</td></tr>
-    </table>
-    <div style="background: #f0f7ff; padding: 20px; border-radius: 10px;">
-      <p><strong>💡 車検・点検について</strong><br>
-      お車の状態に合わせて個別にお見積もりいたします。「次の車検、安く済ませたい」というご相談だけでも大歓迎です！</p>
+    <div class="section-title">
+      <p>PRICE LIST</p>
+      <h2>洗車コース料金</h2>
+    </div>
+    <div class="price-box">
+      <table class="price-table">
+        <thead>
+          <tr><th>SIZE</th><th>MODEL</th><th>PRICE</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="price-name">軽自動車</td>
+            <td style="color:#666">N-BOX / デイズ / タント</td>
+            <td class="price-amount">¥4,400〜</td>
+          </tr>
+          <tr>
+            <td class="price-name">普通車</td>
+            <td style="color:#666">プリウス / ノート / ヤリス</td>
+            <td class="price-amount">¥5,500〜</td>
+          </tr>
+          <tr>
+            <td class="price-name">大型車・SUV</td>
+            <td style="color:#666">アルファード / ランドクルーザー</td>
+            <td class="price-amount">¥7,700〜</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding: 30px; text-align: center; background: #fafafa;">
+        <p style="font-weight: bold; color: var(--accent-red);">★ 車検・修理・パーツ取付も格安受付中！</p>
+        <p style="font-size: 0.8rem; color: #999;">出張費：沖縄中部エリア無料（その他エリアはお問い合わせください）</p>
+      </div>
     </div>
   </section>
 
-  <section id="contact" style="text-align: center;">
-    <h2><span>CONTACT</span>ご予約・お問い合わせ</h2>
-    <p>年中無休・沖縄中部エリアを中心に出張いたします。</p>
-    <p style="font-size: 1.5rem; font-weight: 800; margin: 20px 0;">
-      <a href="tel:08064872937" style="color: var(--main-blue); text-decoration: none;">📞 080-6487-2937</a>
-    </p>
-    <p>「Webサイトを見た」とお伝えいただくとスムーズです。</p>
-  </section>
-
   <footer>
-    <p>© 2026 ON SIGHT 沖縄中部<br>
-    整備士資格保持者在籍｜出張洗車・点検・車検代行</p>
+    <p>ON SIGHT - OKINAWA MOBILE DETAILING</p>
+    <p>代表直通：080-6487-2937</p>
+    <p style="margin-top: 20px;">© 2026 ON SIGHT All Rights Reserved.</p>
   </footer>
 
-  <div class="fixed-footer">
-    <a href="tel:08064872937" class="btn btn-tel">電話で予約</a>
-    <a href="#" class="btn btn-line">LINEで相談</a>
+  <div class="fixed-action">
+    <a href="tel:08064872937" class="btn btn-tel">📞 電話予約</a>
+    <a href="#" class="btn btn-line">公式LINE相談</a>
   </div>
 
 </body>
 </html>
-
-
-
