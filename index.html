@@ -5,66 +5,58 @@
   <title>ON SIGHT｜沖縄中部 出張洗車サービス</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .nav {
-  background: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #ddd;
-}
-
-.nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 10px 0;
-}
-
-.nav li {
-  margin: 0 15px;
-}
-
-.nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-.nav a:hover {
-  color: #0da9a7;
-}
-
-    body {<nav class="nav">
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#service">Service</a></li>
-    <li><a href="#price">Price</a></li>
-    <li><a href="#reservation">Reservation</a></li>
-    <li><a href="#business">法人向け</a></li>
-  </ul>
-</nav>
-
+    body {
       font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
       margin: 0;
       color: #333;
       line-height: 1.6;
     }
+
+    /* ナビゲーション */
+    .nav {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ddd;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 10px 0;
+    }
+    .nav li {
+      margin: 0 15px;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .nav a:hover {
+      color: #0da9a7;
+    }
+
     header {
       background: #0da9a7;
       color: #fff;
       padding: 40px 20px;
       text-align: center;
     }
+
     section {
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
     }
+
     h2 {
       border-left: 5px solid #0da9a7;
       padding-left: 10px;
     }
+
     .btn {
       display: inline-block;
       background: #0da9a7;
@@ -74,6 +66,7 @@
       border-radius: 5px;
       margin-top: 10px;
     }
+
     footer {
       background: #f5f5f5;
       text-align: center;
@@ -84,21 +77,26 @@
 </head>
 <body>
 
-<header>
+<!-- ナビゲーション -->
+<nav class="nav">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#price">Price</a></li>
+    <li><a href="#reservation">Reservation</a></li>
+    <li><a href="#business">法人向け</a></li>
+  </ul>
+</nav>
+
+<!-- ヘッダー -->
+<header id="home">
   <h1>ON SIGHT</h1>
   <p>沖縄中部 出張洗車サービス</p>
   <p>ご自宅・職場でその場洗車。移動ゼロで愛車をリフレッシュ。</p>
 </header>
 
-<section>
-  <h2>ON SIGHTについて</h2>
-  <p>
-    ON SIGHTは、沖縄県中部を中心に活動する出張洗車サービスです。<br>
-    お客様のご自宅・職場の駐車場まで伺い、丁寧な手洗い洗車を行います。
-  </p>
-</section>
-
-<section>
+<!-- 各セクション -->
+<section id="service">
   <h2>サービス内容</h2>
   <ul>
     <li>手洗い洗車</li>
@@ -107,15 +105,7 @@
   </ul>
 </section>
 
-<section>
-  <h2>対応エリア</h2>
-  <p>
-    沖縄市 / うるま市 / 北谷町 / 嘉手納町 / 読谷村 ほか<br>
-    ※その他エリアもお気軽にご相談ください
-  </p>
-</section>
-
-<section>
+<section id="price">
   <h2>料金目安</h2>
   <p>
     軽自動車：3,000円〜<br>
@@ -125,32 +115,14 @@
   </p>
 </section>
 
-<section>
-  <h2>ご予約・お問い合わせ</h2>
-  <p>
-    お問い合わせは下記よりお願いいたします。
-  </p>
-  <a href="tel:090-0000-0000" class="btn">電話で問い合わせ</a><br><br>
-  <a href="mailto:example@gmail.com" class="btn">メールで問い合わせ</a>
-</section>
-
-<footer>
-  <p>© 2026 ON SIGHT</p>
-</footer>
-<header id="home">
-<section id="service">
-<section id="price">
 <section id="reservation">
   <h2>ご予約・お問い合わせ</h2>
-  <p>
-    ご予約・お問い合わせは下記よりお願いいたします。
-  </p>
+  <p>ご予約・お問い合わせは下記よりお願いいたします。</p>
   <a href="tel:090-0000-0000" class="btn">電話で予約</a><br><br>
   <a href="#" class="btn">LINEで予約</a>
 </section>
-on">
 
-  <section id="business">
+<section id="business">
   <h2>法人向けサービス</h2>
   <p>
     法人様・店舗様向けに、社用車・営業車の定期洗車も承っております。<br>
@@ -158,9 +130,9 @@ on">
   </p>
 </section>
 
-  
+<footer>
+  <p>© 2026 ON SIGHT</p>
+</footer>
+
 </body>
 </html>
-
-
-
